@@ -48,7 +48,7 @@ html
           a href="http://www.capcom.co.jp/arcade/rev/PC/" target="_blank" crossbeatsREV.
           | 風リザルト(技術<span style="color:red;">だけ</span>の結果)を当てはめて計算するフォームです。
         . ついでに某IIDX風、某ポ風のリザルトも(計算できたので)出しました。
-        . 計算は結構テキトー(小数点丸めなど)、判定幅の違いなども考慮できません無理です。
+        . 計算は結構テキトー(小数点丸めなど)、判定幅の違いなども考慮できませんそんなん無理です。
 
       form action="/" method="get"
         .row
@@ -87,6 +87,9 @@ html
                   .form-group.row
                     label.col-sm-6 for="hit" TOTAL
                     .col-sm-6 style="text-align:right;" = @total
+
+                  a.btn.btn-secondary href="/" リセット
+
 
           .col-md-1
             button.btn.btn-success type="submit" style="margin-top:80px;" 変換>>
