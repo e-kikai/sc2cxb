@@ -1,0 +1,178 @@
+html
+  head
+    link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+    script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"
+    script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"
+
+    title SC 2 CxB スコア計算フォーム
+
+    css:
+      input[type="number"] {
+        text-align: right;
+      }
+
+      table.table.md-0 td {
+        text-align: right;
+      }
+
+      th.pika {
+        color: #f36f6f;
+      }
+
+      tr.sepa {
+        border-top: 3px double #dee2e6;
+      }
+
+      .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+        padding-right: 4px;
+        padding-left: 4px;
+      }
+
+      .table td, .table th {
+        padding: 12px 6px;
+      }
+
+      .form-group {
+        margin-bottom: 4px;
+      }
+
+
+  body
+    .container
+      h3 SC 2 CxB スコア計算フォーム
+
+      p
+        . セブンスコードのリザルトから、CxB風リザルト(技術<span style="color:red;">だけ</span>の結果)を当てはめて計算するフォームです。
+        . ついでに某IIDX風、某ポ風のリザルトも(出せたので)出しました。
+        . 計算は結構テキトー(小数点丸めなど)です。あと判定幅の違いなども考慮していません(無理ですできません)。
+
+      form action="/" method="get"
+        .row
+          .col-md-3
+            .card
+              .card-header ブンスコのリザルトを入力
+              .card-body
+                .form-group.row
+                  label.col-sm-6 for="favulous" FABULOUS
+                  .col-sm-6
+                    input type="number" name="favulous" value="#{@favulous}" class="form-control favulous" placeholder="FABULOUS"
+                .form-group.row
+                  label.col-sm-6 for="critical" CRITICAL
+                  .col-sm-6
+                    input type="number" name="critical" value="#{@critical}" class="form-control critical" placeholder="CRITICAL"
+                .form-group.row
+                  label.col-sm-6 for="burst" BURST
+                  .col-sm-6
+                    input type="number" name="burst" value="#{@burst}" class="form-control burst" placeholder="BURST"
+                .form-group.row
+                  label.col-sm-6 for="hit" HIT
+                  .col-sm-6
+                    input type="number" name="hit" value="#{@hit}" class="form-control hit" placeholder="HIT"
+                .form-group.row
+                  label.col-sm-6 for="miss" MISS
+                  .col-sm-6
+                    input type="number" name="miss" value="#{@miss}" class="form-control miss" placeholder="MISS"
+                hr
+
+                .form-group.row
+                  label.col-sm-6 for="hit" COMBO
+                  .col-sm-6
+                    input type="number" name="combo" value="#{@combo}" class="form-control combo" placeholder="COMBO"
+
+                - if @total > 0
+                  .form-group.row
+                    label.col-sm-6 for="hit" TOTAL
+                    .col-sm-6 style="text-align:right;" = @total
+
+          .col-md-1
+            button.btn.btn-success type="submit" style="margin-top:80px;" 変換>>
+
+          - if @total > 0
+            .col-md-3
+              .card
+                .card-header CxB風リザルト
+                table.table.md-0.table-hover
+                  tr
+                    th GRADE
+                    td = @cb_rank
+                  tr
+                    th CREAR RATE
+                    td #{@cb_rate}%
+
+                  tr
+                    th SCORE
+                    td = @cb_score
+
+                  tr.sepa
+                    th Flawless
+                    td = @favulous
+                  tr
+                    th Super
+                    td = @critical
+                  tr
+                    th Cool
+                    td = @burst
+                  tr
+                    th Fast/Slow
+                    td = @hit
+                  tr
+                    th.table-dark Fail
+                    td.table-dark = @miss
+
+            .col-md-2
+              .card
+                .card-header IIDX風リザルト
+                table.table.md-0.table-hover
+                  tr
+                    th DJ LEVEL
+                    td = @dj_level
+                  tr
+                    th EX SCORE
+                    td = @ex_score
+                  tr
+                    th MISS COUNT
+                    td = @miss_count
+
+                  tr.sepa
+                    th.pika GREAT
+                    td = @favulous
+                  tr
+                    th GREAT
+                    td = @critical
+                  tr
+                    th GOOD
+                    td = @burst
+                  tr
+                    th POOR
+                    td = @hit
+                  tr
+                    th BAD
+                    td = @miss
+
+            .col-md-2
+              .card
+                .card-header ポ風リザルト
+                table.table.md-0.table-hover
+                  tr
+                    th RANK
+                    td = @pm_rank
+                  tr
+                    th SCORE
+                    td = @pm_score
+
+                  tr.sepa
+                    th style="color:purple;" COOL
+                    td = @favulous
+                  tr
+                    th style="color:orange;" GREAT
+                    td = @critical
+                  tr
+                    th style="color:red;" GOOD
+                    td = @burst
+                  tr
+                    th style="color:blue;" BAD
+                    td = @miss_count
+
+      .alert.alert-danger
+        . ※ このフォームあくまでシャレです。<span style="color:red;font-size:130%;">ジョークグッズ</span>です。
+        . セブンスコードは「植能をぶつけあって楽む」ものと、と箕輪★狂介もおっしゃっております。オンラインバトルしようぜ！！
