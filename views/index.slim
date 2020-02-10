@@ -34,29 +34,29 @@ html
                 .form-group.row
                   label.col-md-6.col-sm-6.col-6 for="favulous" style="color:Blue;" FABULOUS
                   .col-md-6.col-sm-6.col-6
-                    input type="tel" name="favulous" value="#{@favulous}" class="form-control favulous" placeholder="FABULOUS"
+                    input type="tel" name="favulous" value="#{@favulous > 0 ? @favulous : ""}" class="form-control favulous" placeholder="0"
                 .form-group.row
                   label.col-md-6.col-sm-6.col-6 for="critical" style="color:#ffcc00;" CRITICAL
                   .col-md-6.col-sm-6.col-6
-                    input type="tel" name="critical" value="#{@critical}" class="form-control critical" placeholder="CRITICAL"
+                    input type="tel" name="critical" value="#{@critical > 0 ? @critical : ""}" class="form-control critical" placeholder="0"
                 .form-group.row
                   label.col-md-6.col-sm-6.col-6 for="burst" style="color:#00cccc;" BURST
                   .col-md-6.col-sm-6.col-6
-                    input type="tel" name="burst" value="#{@burst}" class="form-control burst" placeholder="BURST"
+                    input type="tel" name="burst" value="#{@burst > 0 ? @burst : ""}" class="form-control burst" placeholder="0"
                 .form-group.row
                   label.col-md-6.col-sm-6.col-6 for="hit" style="color:#003399;" HIT
                   .col-md-6.col-sm-6.col-6
-                    input type="tel" name="hit" value="#{@hit}" class="form-control hit" placeholder="HIT"
+                    input type="tel" name="hit" value="#{@hit > 0 ? @hit : ""}" class="form-control hit" placeholder="0"
                 .form-group.row
                   label.col-md-6.col-sm-6.col-6 for="miss" MISS
                   .col-md-6.col-sm-6.col-6
-                    input type="tel" name="miss" value="#{@miss}" class="form-control miss" placeholder="MISS"
+                    input type="tel" name="miss" value="#{@miss > 0 ? @miss : ""}" class="form-control miss" placeholder="0"
                 hr
 
                 .form-group.row
                   label.col-md-6.col-sm-6.col-6 for="hit" COMBO
                   .col-md-6.col-sm-6.col-6
-                    input type="tel" name="combo" value="#{@combo}" class="form-control combo" placeholder="COMBO"
+                    input type="tel" name="combo" value="#{@combo > 0 ? @combo : ""}" class="form-control combo" placeholder="0"
 
                 - if @total > 0
                   .form-group.row

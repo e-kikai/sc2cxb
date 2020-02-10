@@ -7,12 +7,12 @@ set :environment, :production
 get '/' do
   # 'hello'
 
-  @favulous = params[:favulous].to_i
-  @critical = params[:critical].to_i
-  @burst    = params[:burst].to_i
-  @hit      = params[:hit].to_i
-  @miss     = params[:miss].to_i
-  @combo    = params[:combo].to_i
+  @favulous = params[:favulous].to_i.abs
+  @critical = params[:critical].to_i.abs
+  @burst    = params[:burst].to_i.abs
+  @hit      = params[:hit].to_i.abs
+  @miss     = params[:miss].to_i.abs
+  @combo    = params[:combo].to_i.abs
 
   # 処理
   @total = @favulous + @critical + @burst + @hit + @miss
