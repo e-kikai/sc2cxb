@@ -45,8 +45,17 @@ tr.sepa {
     color: #FFF;
 }
 
-button.conversion {
+table.table.md-0 th {
+    text-align: left;
+    font-weight: normal;
+}
+
+.d-none button.conversion {
   display: block;
   margin: 80px auto auto auto;
+}
 
+.d-sm-none button.conversion {
+  display: block;
+  margin: 8px auto;
 }

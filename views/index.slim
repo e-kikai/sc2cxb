@@ -27,50 +27,52 @@ html
 
       form action="/" method="get"
         .row
-          .col-md-3.offset-md-2.col-sm-5.col-xs-12
+          .col-lg-3.offset-lg-2.col-md-5.col-sm-5.col-12
             .card.sevenscode
               .card-header 1. SEVEN's CODEリザルトを入力
               .card-body
                 .form-group.row
-                  label.col-sm-6 for="favulous" style="color:Blue;" FABULOUS
-                  .col-sm-6
+                  label.col-md-6.col-sm-6.col-6 for="favulous" style="color:Blue;" FABULOUS
+                  .col-md-6.col-sm-6.col-6
                     input type="number" name="favulous" value="#{@favulous}" class="form-control favulous" placeholder="FABULOUS"
                 .form-group.row
-                  label.col-sm-6 for="critical" style="color:#ffcc00;" CRITICAL
-                  .col-sm-6
+                  label.col-md-6.col-sm-6.col-6 for="critical" style="color:#ffcc00;" CRITICAL
+                  .col-md-6.col-sm-6.col-6
                     input type="number" name="critical" value="#{@critical}" class="form-control critical" placeholder="CRITICAL"
                 .form-group.row
-                  label.col-sm-6 for="burst" style="color:#00cccc;" BURST
-                  .col-sm-6
+                  label.col-md-6.col-sm-6.col-6 for="burst" style="color:#00cccc;" BURST
+                  .col-md-6.col-sm-6.col-6
                     input type="number" name="burst" value="#{@burst}" class="form-control burst" placeholder="BURST"
                 .form-group.row
-                  label.col-sm-6 for="hit" style="color:#003399;" HIT
-                  .col-sm-6
+                  label.col-md-6.col-sm-6.col-6 for="hit" style="color:#003399;" HIT
+                  .col-md-6.col-sm-6.col-6
                     input type="number" name="hit" value="#{@hit}" class="form-control hit" placeholder="HIT"
                 .form-group.row
-                  label.col-sm-6 for="miss" MISS
-                  .col-sm-6
+                  label.col-md-6.col-sm-6.col-6 for="miss" MISS
+                  .col-md-6.col-sm-6.col-6
                     input type="number" name="miss" value="#{@miss}" class="form-control miss" placeholder="MISS"
                 hr
 
                 .form-group.row
-                  label.col-sm-6 for="hit" COMBO
-                  .col-sm-6
+                  label.col-md-6.col-sm-6.col-6 for="hit" COMBO
+                  .col-md-6.col-sm-6.col-6
                     input type="number" name="combo" value="#{@combo}" class="form-control combo" placeholder="COMBO"
 
                 - if @total > 0
                   .form-group.row
-                    label.col-sm-6 for="hit" TOTAL
-                    .col-sm-6 style="text-align:right;" = @total
+                    label.col-md-6.col-sm-6.col-6 for="hit" TOTAL
+                    .col-md-6.col-sm-6.col-6 style="text-align:right;" = @total
 
                   a.btn.btn-secondary href="/" リセット
 
 
-          .col-md-2.col-sm-2.col-xs-12
+          .d-none.d-sm-block.col-md-2.col-sm-2.col-12
             button.btn.btn-success.conversion type="submit" 2. 変換 >>
+          .d-sm-none.col-12
+            button.btn.btn-success.conversion type="submit" ▼ 2. 変換 ▼
 
           - if @total > 0
-            .col-md-3.col-sm-5.col-xs-12
+            .col-lg-3.col-md-5.col-sm-5.col-12
               .card.crossbeats
                 .card-header CxB, cbREV.風リザルト
                 table.table.md-0.table-hover
@@ -160,13 +162,14 @@ html
 
       .alert.alert-danger
         .
-          / | ※ このフォームはシャレみたいなものです。
-          = "※"
-          a href="https://www.sevenscode.jp/" target="_blank" SEVEN's CODE
-          | は「植能をぶつけあって楽しもう」と、
-          a href="https://youtu.be/vM18a6RMxSs" target="_blank" 箕輪★狂介
-          | もおっしゃっております。
-          span style="color:purple;font-size:130%;" みんな、オンラインバトルしようぜ！！
+          .d-inline-block
+            / | ※ このフォームはシャレみたいなものです。
+            = "※"
+            a href="https://www.sevenscode.jp/" target="_blank" SEVEN's CODE
+            | は「植能をぶつけあって楽しもう」と、
+            a href="https://youtu.be/vM18a6RMxSs" target="_blank" 箕輪★狂介
+            | もおっしゃっております。
+          .d-inline-block style="color:purple;font-size:130%;" みんな、オンラインバトルしようぜ！！
 
       hr
 
