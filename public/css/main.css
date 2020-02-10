@@ -34,3 +34,19 @@ tr.sepa {
   vertical-align: top;
   margin-right: 8px;
 }
+
+.sevenscode .card-header {
+    background: #550080;
+    color: #FFF;
+}
+
+.crossbeats .card-header {
+    background: #06842d;
+    color: #FFF;
+}
+
+button.conversion {
+  display: block;
+  margin: 80px auto auto auto;
+
+}

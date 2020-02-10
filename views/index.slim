@@ -4,7 +4,7 @@ html
     script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"
     script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"
 
-    link href="/css/main.css" rel="stylesheet"
+    link href="/css/main.css?2" rel="stylesheet"
 
     title SC 2 CxB スコア計算フォーム
   body
@@ -18,30 +18,31 @@ html
           a href="http://game.capcom.com/crossbeats/" target="_blank" CROSS×BEATS
           | ,
           a href="http://www.capcom.co.jp/arcade/rev/PC/" target="_blank" crossbeatsREV.
-          | 風リザルト(技術特化)を算出するフォームです。
-        . = "(ついでに某IIDX風、某ポ風のリザルトも算出) 独自スコアタなどに利用してはいかがでしょうか？"
-        . 細かい部分は(小数点丸めなど)適当、判定幅の違いなども考慮できませんそんなん無理です。
+          | 風リザルト(テクニカルスコア)を算出するフォームです。
+        / . = "(ついでに某IIDX風、某ポ風のリザルトも算出)"
+        . = " 独自スコアタなどに利用してはいかがでしょうか？"
+        / . 細かい部分は(小数点丸めなど)適当、判定幅の違いなども考慮できませんそんなん無理です。
 
       form action="/" method="get"
         .row
-          .col-md-3
-            .card
-              .card-header SEVEN's CODEリザルトを入力
+          .col-md-3.offset-md-2.col-sm-5.col-xs-12
+            .card.sevenscode
+              .card-header 1. SEVEN's CODEリザルトを入力
               .card-body
                 .form-group.row
-                  label.col-sm-6 for="favulous" FABULOUS
+                  label.col-sm-6 for="favulous" style="color:Blue;" FABULOUS
                   .col-sm-6
                     input type="number" name="favulous" value="#{@favulous}" class="form-control favulous" placeholder="FABULOUS"
                 .form-group.row
-                  label.col-sm-6 for="critical" CRITICAL
+                  label.col-sm-6 for="critical" style="color:#ffcc00;" CRITICAL
                   .col-sm-6
                     input type="number" name="critical" value="#{@critical}" class="form-control critical" placeholder="CRITICAL"
                 .form-group.row
-                  label.col-sm-6 for="burst" BURST
+                  label.col-sm-6 for="burst" style="color:#00cccc;" BURST
                   .col-sm-6
                     input type="number" name="burst" value="#{@burst}" class="form-control burst" placeholder="BURST"
                 .form-group.row
-                  label.col-sm-6 for="hit" HIT
+                  label.col-sm-6 for="hit" style="color:#003399;" HIT
                   .col-sm-6
                     input type="number" name="hit" value="#{@hit}" class="form-control hit" placeholder="HIT"
                 .form-group.row
@@ -63,13 +64,13 @@ html
                   a.btn.btn-secondary href="/" リセット
 
 
-          .col-md-1
-            button.btn.btn-success type="submit" style="margin-top:80px;" 変換>>
+          .col-md-2.col-sm-2.col-xs-12
+            button.btn.btn-success.conversion type="submit" 2. 変換 >>
 
           - if @total > 0
-            .col-md-3
-              .card
-                .card-header CxB風リザルト
+            .col-md-3.col-sm-5.col-xs-12
+              .card.crossbeats
+                .card-header CxB, cbREV.風リザルト
                 table.table.md-0.table-hover
                   tr
                     th GRADE
@@ -101,68 +102,69 @@ html
                     th.table-dark Fail
                     td.table-dark = @miss
 
-            .col-md-2
-              .card
-                .card-header IIDX風リザルト
-                table.table.md-0.table-hover
-                  tr
-                    th DJ LEVEL
-                    td = @dj_level
-                  tr
-                    th EX SCORE
-                    td = @ex_score
-                  tr
-                    th MISS COUNT
-                    td = @miss_count
-
-                  tr.sepa
-                    th.pika GREAT
-                    td = @favulous
-                  tr
-                    th GREAT
-                    td = @critical
-                  tr
-                    th GOOD
-                    td = @burst
-                  tr
-                    th POOR
-                    td = @hit
-                  tr
-                    th BAD
-                    td = @miss
-
-            .col-md-2
-              .card
-                .card-header ポ風リザルト
-                table.table.md-0.table-hover
-                  tr
-                    th RANK
-                    td = @pm_rank
-                  tr
-                    th SCORE
-                    td = @pm_score
-
-                  tr.sepa
-                    th style="color:purple;" COOL
-                    td = @favulous
-                  tr
-                    th style="color:orange;" GREAT
-                    td = @critical
-                  tr
-                    th style="color:red;" GOOD
-                    td = @burst
-                  tr
-                    th style="color:blue;" BAD
-                    td = @miss_count
+            / .col-md-2
+            /   .card
+            /     .card-header IIDX風リザルト
+            /     table.table.md-0.table-hover
+            /       tr
+            /         th DJ LEVEL
+            /         td = @dj_level
+            /       tr
+            /         th EX SCORE
+            /         td = @ex_score
+            /       tr
+            /         th MISS COUNT
+            /         td = @miss_count
+            /
+            /       tr.sepa
+            /         th.pika GREAT
+            /         td = @favulous
+            /       tr
+            /         th GREAT
+            /         td = @critical
+            /       tr
+            /         th GOOD
+            /         td = @burst
+            /       tr
+            /         th POOR
+            /         td = @hit
+            /       tr
+            /         th BAD
+            /         td = @miss
+            /
+            / .col-md-2
+            /   .card
+            /     .card-header ポ風リザルト
+            /     table.table.md-0.table-hover
+            /       tr
+            /         th RANK
+            /         td = @pm_rank
+            /       tr
+            /         th SCORE
+            /         td = @pm_score
+            /
+            /       tr.sepa
+            /         th style="color:purple;" COOL
+            /         td = @favulous
+            /       tr
+            /         th style="color:orange;" GREAT
+            /         td = @critical
+            /       tr
+            /         th style="color:red;" GOOD
+            /         td = @burst
+            /       tr
+            /         th style="color:blue;" BAD
+            /         td = @miss_count
 
       .alert.alert-danger
         .
-          | ※ このフォームはシャレみたいなものです。
-          a href="https://www.sevenscode.jp/" target="_blank" セブンスコード
+          / | ※ このフォームはシャレみたいなものです。
+          = "※"
+          a href="https://www.sevenscode.jp/" target="_blank" SEVEN's CODE
           | は「植能をぶつけあって楽しもう」と、
           a href="https://youtu.be/vM18a6RMxSs" target="_blank" 箕輪★狂介
           | もおっしゃっております。
-        . style="color:purple;font-size:130%;" みんな、オンラインバトルしようぜ！！
+          span style="color:purple;font-size:130%;" みんな、オンラインバトルしようぜ！！
 
       hr
 
